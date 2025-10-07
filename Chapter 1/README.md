@@ -1,86 +1,85 @@
 ﻿# Chapter 1 Summary: The Machine Learning Landscape
 
-## Introduction to Machine Learning
-The chapter begins by dispelling common myths about Machine Learning (ML), often pictured as robots like a dependable butler or a deadly Terminator. However, ML is already here and has been for decades in specialized applications like Optical Character Recognition (OCR). The first mainstream ML application was the spam filter in the 1990s, which learned so well that users rarely need to flag spam anymore. Today, ML powers hundreds of products and features, from recommendations to voice search.
+## Pengenalan Machine Learning
+Bab ini dimulai dengan membantah mitos umum tentang Machine Learning (ML), yang sering digambarkan sebagai robot seperti pelayan yang andal atau Terminator yang mematikan. Namun, ML sudah ada di sini dan telah digunakan selama puluhan tahun dalam aplikasi khusus seperti Pengenalan Karakter Optik (OCR). Aplikasi ML pertama yang populer adalah filter spam pada tahun 1990-an, yang belajar dengan sangat baik sehingga pengguna jarang perlu menandai spam lagi. Hari ini, ML menggerakkan ratusan produk dan fitur, mulai dari rekomendasi hingga pencarian suara.
 
-The chapter clarifies what ML is: the science (and art) of programming computers to learn from data. Definitions include:
-- Arthur Samuel (1959): The field of study that gives computers the ability to learn without being explicitly programmed.
-- Tom Mitchell (1997): A program learns from experience E with respect to task T and performance measure P if its performance on T improves with E.
+Bab ini menjelaskan apa itu ML: ilmu (dan seni) memprogram komputer untuk belajar dari data. Definisi meliputi:
+- Arthur Samuel (1959): Bidang studi yang memberi komputer kemampuan untuk belajar tanpa diprogram secara eksplisit.
+- Tom Mitchell (1997): Sebuah program belajar dari pengalaman E terkait tugas T dan ukuran kinerja P jika kinerjanya pada T meningkat seiring dengan E.
 
-Example: A spam filter uses training data (E: labeled spam/ham emails) to improve spam flagging (T) measured by accuracy (P). The examples used for learning are called the training set, with each example being a training instance or sample. Simply downloading Wikipedia adds data but doesn't improve tasks, so it's not ML.
+Contoh: Filter spam menggunakan data pelatihan (E: email spam/ham yang diberi label) untuk meningkatkan penandaan spam (T) yang diukur berdasarkan akurasi (P). Contoh yang digunakan untuk belajar disebut kumpulan data pelatihan, dengan setiap contoh menjadi contoh pelatihan atau sampel. Mengunduh Wikipedia hanya menambah data tetapi tidak meningkatkan tugas, jadi itu bukan ML.
 
-If familiar with basics, skip to Chapter 2; otherwise, answer end-of-chapter questions. This chapter is a high-level overview without much code, introducing fundamental concepts and jargon every data scientist should know.
+Jika sudah familiar dengan dasar-dasar, lanjutkan ke Bab 2; jika tidak, jawab pertanyaan di akhir bab. Bab ini adalah gambaran umum tingkat tinggi tanpa banyak kode, memperkenalkan konsep dasar dan istilah teknis yang harus diketahui setiap ilmuwan data.
 
-## Why Use Machine Learning?
-Traditional programming for spam filters involves studying patterns (e.g., words like "4U," "credit card," "free," "amazing" in subject lines, sender's name, email body) and writing detection algorithms for each, testing and iterating until good enough (Figure 1-1: The traditional approach). This results in long lists of complex rules that are hard to maintain.
+## Mengapa Menggunakan Machine Learning?
+Pemrograman tradisional untuk filter spam melibatkan analisis pola (misalnya, kata-kata seperti “4U,” “kartu kredit,” “gratis,” “luar biasa” dalam baris subjek, nama pengirim, dan isi email) serta penulisan algoritma deteksi untuk masing-masing pola, pengujian, dan iterasi hingga hasilnya memadai (Gambar 1-1: Pendekatan tradisional). Hal ini menghasilkan daftar panjang aturan kompleks yang sulit untuk dipelihara.  
 <img width="978" height="489" alt="image" src="https://github.com/user-attachments/assets/c7286d8e-fac2-4486-a0b0-c82d9fc2e44f" />
-In contrast, an ML-based spam filter automatically learns good predictors by detecting unusually frequent word patterns in spam examples compared to ham (Figure 1-2: The Machine Learning approach). The program is shorter, easier to maintain, and likely more accurate. It adapts to changes, such as spammers switching to "For U," by noticing the new pattern in user-flagged spam and flagging it automatically without intervention (Figure 1-3: Machine Learning can help humans learn).
+Sebaliknya, filter spam berbasis ML secara otomatis mempelajari prediktor yang baik dengan mendeteksi pola kata yang tidak biasa sering muncul dalam contoh spam dibandingkan dengan ham (Gambar 1-2: Pendekatan Machine Learning). Program ini lebih singkat, lebih mudah dipelihara, dan kemungkinan lebih akurat. Ia beradaptasi dengan perubahan, seperti spammer yang beralih ke “For U,” dengan mendeteksi pola baru dalam spam yang dilaporkan pengguna dan menandainya secara otomatis tanpa intervensi (Gambar 1-3: Pembelajaran Mesin dapat membantu manusia belajar).
 <img width="984" height="500" alt="image" src="https://github.com/user-attachments/assets/86ddfcd2-d79d-496f-94b0-b31d71d6964a" />
 <img width="985" height="383" alt="image" src="https://github.com/user-attachments/assets/46094add-718a-4927-b52b-ae9c55e86259" />
 
-ML shines for complex problems with no known algorithms, like speech recognition (hardcoding rules for distinguishing "one" and "two" fails to scale across accents, noise, languages, and millions of speakers—ML learns from example recordings instead).
+ML unggul dalam menangani masalah kompleks yang tidak memiliki algoritma yang diketahui, seperti pengenalan suara (menetapkan aturan secara kaku untuk membedakan “satu” dan “dua” tidak dapat diterapkan secara luas pada berbagai aksen, kebisingan, bahasa, dan jutaan penutur—ML belajar dari rekaman contoh).  
 
-ML also helps humans learn via data mining: Inspecting trained models reveals unsuspected correlations or new trends (Figure 1-4: Machine Learning can help humans learn).
+ML juga membantu manusia belajar melalui penambangan data: Menganalisis model yang telah dilatih dapat mengungkap korelasi yang tidak terduga atau tren baru (Gambar 1-4: Machine Learning dapat membantu manusia belajar).
 <img width="986" height="511" alt="image" src="https://github.com/user-attachments/assets/5b6445a3-aa22-431f-bed2-3fa3449510ad" />
 
-To summarize, ML is great for:
-- Problems requiring a lot of fine-tuning or long lists of rules (one ML algorithm often simplifies the code and performs better).
-- Complex problems for which using a traditional approach yields no good solution (ML techniques can find a solution).
-- Fluctuating environments (ML systems can adapt to new data).
-- Getting insights about complex problems and large amounts of data (discovering hidden patterns).
+Untuk merangkum, ML sangat cocok untuk:
+- Masalah yang memerlukan banyak penyesuaian halus atau daftar aturan yang panjang (satu algoritma ML seringkali menyederhanakan kode dan berkinerja lebih baik).
+- Masalah kompleks di mana pendekatan tradisional tidak menghasilkan solusi yang baik (teknik ML dapat menemukan solusi).
+- Lingkungan yang fluktuatif (sistem ML dapat beradaptasi dengan data baru).
+- Mendapatkan wawasan tentang masalah kompleks dan jumlah data yang besar (menemukan pola tersembunyi).
 
-## Examples of Applications
-Concrete examples include:
-- Analyzing images of products on a production line to automatically classify them: Image classification using convolutional neural networks (CNNs; see Chapter 14).
-- Detecting tumors in brain scans: Semantic segmentation (classifying each pixel to locate and shape the tumor) using CNNs.
-- Automatically classifying news articles: Natural language processing (NLP), specifically text classification using recurrent neural networks (RNNs), CNNs, or Transformers (see Chapter 16).
-- Automatically flagging offensive comments on discussion forums: Text classification using the same NLP tools.
-- Summarizing long documents automatically: Text summarization, a branch of NLP using the same tools.
-- Creating a chatbot or personal assistant: Involves multiple NLP components, including natural language understanding (NLU) and question-answering.
-- Forecasting your company’s revenue next year based on performance metrics: A regression task using Linear Regression or Polynomial Regression (Chapter 4), regression support vector machines (SVMs; Chapter 5), regression Random Forests (Chapter 7), or artificial neural networks (Chapter 10). If the data involves sequences, use RNNs, CNNs, or Transformers (Chapters 15–16).
-- Making your app react to voice commands: Speech recognition (processing audio samples) using RNNs, CNNs, or Transformers (Chapters 15–16).
-- Detecting credit card fraud: Anomaly detection (Chapter 9).
-- Segmenting clients based on their purchases so that your marketing team can design a targeted strategy: Clustering (Chapter 9).
-- Representing a complex, high-dimensional dataset in a clear and insightful diagram: Data visualization, often involving dimensionality reduction (Chapter 8).
-- Recommending a product based on past purchases: Recommender system that feeds data to an artificial neural network (Chapter 10).
-- Building an intelligent bot for a game: Reinforcement Learning (RL; Chapter 18), where the bot learns to maximize rewards (e.g., AlphaGo beating the world champion in Go by analyzing millions of games and playing against itself).
+## Contoh Aplikasi
+Contoh konkret meliputi:
+- Menganalisis gambar produk di jalur produksi untuk mengklasifikasikannya secara otomatis: Klasifikasi gambar menggunakan jaringan saraf konvolusional (CNN; lihat Bab 14).
+- Mendeteksi tumor pada pemindaian otak: Segmentasi semantik (mengklasifikasikan setiap piksel untuk menentukan lokasi dan bentuk tumor) menggunakan CNN.
+- Mengklasifikasikan artikel berita secara otomatis: Pemrosesan bahasa alami (NLP), khususnya klasifikasi teks menggunakan jaringan saraf rekurens (RNNs), CNNs, atau Transformers (lihat Bab 16).
+- Menandai komentar ofensif secara otomatis di forum diskusi: Klasifikasi teks menggunakan alat NLP yang sama.
+- Merangkum dokumen panjang secara otomatis: Ringkasan teks, cabang dari NLP yang menggunakan alat yang sama.
+- Membuat chatbot atau asisten pribadi: Melibatkan komponen NLP yang beragam, termasuk pemahaman bahasa alami (NLU) dan sistem tanya-jawab.
+- Memprediksi pendapatan perusahaan Anda tahun depan berdasarkan metrik kinerja: Tugas regresi menggunakan Regresi Linier atau Regresi Polinomial (Bab 4), mesin vektor dukungan regresi (SVMs; Bab 5), regresi Hutan Acak (Bab 7), atau jaringan saraf tiruan (Bab 10). Jika data melibatkan urutan, gunakan RNN, CNN, atau Transformers (Bab 15–16).
+- Membuat aplikasi Anda merespons perintah suara: Pengenalan suara (pemrosesan sampel audio) menggunakan RNN, CNN, atau Transformers (Bab 15–16).
+- Mendeteksi penipuan kartu kredit: Deteksi anomali (Bab 9).
+- Mengelompokkan pelanggan berdasarkan pembelian mereka sehingga tim pemasaran Anda dapat merancang strategi yang ditargetkan: Pengelompokan (Bab 9).
+- Menampilkan dataset kompleks dan berdimensi tinggi dalam diagram yang jelas dan informatif: Visualisasi data, sering melibatkan pengurangan dimensi (Bab 8).
+- Merekomendasikan produk berdasarkan pembelian sebelumnya: Sistem rekomendasi yang memasukkan data ke dalam jaringan saraf tiruan (Bab 10).
+- Membangun bot cerdas untuk permainan: Pembelajaran Penguatan (RL; Bab 18), di mana bot belajar untuk memaksimalkan imbalan (misalnya, AlphaGo mengalahkan juara dunia Go dengan menganalisis jutaan permainan dan bermain melawan dirinya sendiri).
 
-This demonstrates the incredible breadth and complexity of ML tasks.
+Hal ini menunjukkan luasnya cakupan dan kompleksitas tugas-tugas ML.
 
-## Types of ML Systems
-ML systems are classified based on three criteria (not exclusive; they can combine):
-- Amount and type of supervision they get during training: Supervised, unsupervised, semisupervised, Reinforcement Learning.
-- Whether or not they can learn incrementally on the fly: Online versus batch learning.
-- Whether they work by simply comparing new data points to known data points, or instead by detecting patterns in the training data and building a predictive model: Instance-based versus model-based learning.
+## Jenis Sistem ML  
+Sistem ML diklasifikasikan berdasarkan tiga kriteria (tidak eksklusif; mereka dapat digabungkan):
+- Jumlah dan jenis pengawasan yang mereka terima selama pelatihan: Terawasi, tidak terawasi, semi-terawasi, Pembelajaran Penguatan.
+- Apakah mereka dapat belajar secara bertahap secara real-time: Pembelajaran online versus pembelajaran batch.
+- Apakah mereka bekerja dengan hanya membandingkan titik data baru dengan titik data yang sudah diketahui, atau dengan mendeteksi pola dalam data pelatihan dan membangun model prediktif: Pembelajaran berbasis instance versus pembelajaran berbasis model.
 
-For example, a spam filter can be a supervised learning system that is model-based and learns online.
+Misalnya, filter spam dapat menjadi sistem pembelajaran terawasi yang berbasis model dan belajar secara online.
 
-### Supervised/Unsupervised Learning
-- **Supervised Learning**: The training data fed to the algorithm includes the desired solutions, called labels (Figure 1-5: A labeled training set for spam classification). Common tasks:
+### Pembelajaran Terawasi/Tidak Terawasi
+- **Pembelajaran Terawasi**: Data pelatihan yang diberikan ke algoritma mencakup solusi yang diinginkan, yang disebut label (Gambar 1-5: Kumpulan data pelatihan berlabel untuk klasifikasi spam). Tugas umum:
 <img width="978" height="420" alt="image" src="https://github.com/user-attachments/assets/2485d309-006c-49c4-a074-aa0d668d54be" />
-  - Classification: Categorize instances (e.g., spam filter classifying emails as spam or ham).
-  - Regression: Predict numeric values (e.g., predict a car's price given predictors like mileage, age, brand; Figure 1-6: A regression problem: predict a value, given an input feature). Note: An attribute is a data type (e.g., "mileage"), while a feature has several meanings but typically means an attribute plus its value. Algorithms: k-Nearest Neighbors, Linear Regression, Logistic Regression (outputs class probabilities, e.g., 20% chance of spam), Support Vector Machines (SVMs), Decision Trees and Random Forests, Neural networks.
+  - Klasifikasi: Mengkategorikan contoh (misalnya, filter spam yang mengklasifikasikan email sebagai spam atau ham).
+  - Regresi: Memprediksi nilai numerik (misalnya, memprediksi harga mobil berdasarkan prediktor seperti jarak tempuh, usia, merek; Gambar 1-6: Masalah regresi: memprediksi nilai berdasarkan fitur input). Catatan: Atribut adalah jenis data (misalnya, “jarak tempuh”), sementara fitur memiliki beberapa arti tetapi umumnya berarti atribut ditambah nilainya. Algoritma: k-Nearest Neighbors, Regresi Linier, Regresi Logistik (menghasilkan probabilitas kelas, misalnya 20% kemungkinan spam), Mesin Vektor Dukungan (SVM), Pohon Keputusan dan Hutan Acak, Jaringan Saraf Tiruan.
 <img width="998" height="552" alt="image" src="https://github.com/user-attachments/assets/9eef420a-3666-43e2-b749-87f484eec813" />
+ - Beberapa algoritma jaringan saraf (misalnya, autoencoders dan restricted Boltzmann machines) dapat bersifat tidak diawasi, sementara yang lain (misalnya, deep belief networks) bersifat semi-diawasi.
 
-  - Some neural network algorithms (e.g., autoencoders and restricted Boltzmann machines) can be unsupervised, while others (e.g., deep belief networks) are semisupervised.
-
-- **Unsupervised Learning**: The training data is unlabeled (Figure 1-7: Unsupervised learning). The system learns without a teacher. Key tasks (covered in Chapters 8–9):
+- **Unsupervised Learning**: Data pelatihan tidak dilabeli (Gambar 1-7: Pembelajaran tidak diawasi). Sistem belajar tanpa guru. Tugas utama (dibahas dalam Bab 8–9):
 <img width="993" height="371" alt="image" src="https://github.com/user-attachments/assets/86ff9e2f-1be9-4d44-8e30-bded3acbe74b" />
-  - Clustering: Group similar instances automatically (e.g., cluster blog visitors by demographics or behavior; Figure 1-8: Clustering). Algorithms: K-Means, DBSCAN, Hierarchical Cluster Analysis (HCA).
+  - Clustering: Mengelompokkan instance serupa secara otomatis (misalnya, mengelompokkan pengunjung blog berdasarkan demografi atau perilaku; Gambar 1-8: Clustering). Algoritma: K-Means, DBSCAN, Analisis Cluster Hierarkis (HCA).
 <img width="981" height="362" alt="image" src="https://github.com/user-attachments/assets/a6c495e6-e6f4-4058-b538-847a4c440caa" />
-
-  - Anomaly detection and novelty detection: Detect unusual instances (e.g., fraud detection, manufacturing defects; Figure 1-10: Anomaly detection). Algorithms: One-class SVM, Isolation Forest.
-<img width="1008" height="417" alt="image" src="https://github.com/user-attachments/assets/6c9fb6e3-6f3c-4ab1-885d-5d8096113db2" /> 
-  - Visualization and dimensionality reduction: Simplify data without losing too much information for visualization or feature extraction (Figure 1-9: Visualization of a high-dimensional dataset using a dimensionality reduction algorithm; e.g., t-SNE highlighting semantic clusters like numbers or animals). Algorithms: Principal Component Analysis (PCA), Kernel PCA, Locally Linear Embedding (LLE), t-Distributed Stochastic Neighbor Embedding (t-SNE). Feature extraction merges correlated features (e.g., car's mileage and age into "wear and tear").
+  - Deteksi anomali dan deteksi keunikan: Mendeteksi insiden yang tidak biasa (misalnya, deteksi penipuan, cacat produksi; Gambar 1-10: Deteksi anomali). Algoritma: One-class SVM, Isolation Forest.
+<img width="1008" height="417" alt="gambar" src="https://github.com/user-attachments/assets/6c9fb6e3-6f3c-4ab1-885d-5d8096113db2" /> 
+  - Visualisasi dan pengurangan dimensi: Sederhanakan data tanpa kehilangan terlalu banyak informasi untuk visualisasi atau ekstraksi fitur (Gambar 1-9: Visualisasi dataset berdimensi tinggi menggunakan algoritma pengurangan dimensi; misalnya, t-SNE menyoroti cluster semantik seperti angka atau hewan). Algoritma: Principal Component Analysis (PCA), Kernel PCA, Locally Linear Embedding (LLE), t-Distributed Stochastic Neighbor Embedding (t-SNE). Ekstraksi fitur menggabungkan fitur yang berkorelasi (misalnya, jarak tempuh dan usia mobil menjadi “keausan”).
     <img width="984" height="668" alt="image" src="https://github.com/user-attachments/assets/9686c26e-7327-40fe-80a4-f125de0b6f08" />
-  - Association rule learning: Discover interesting relations between attributes (e.g., people buying barbecue sauce and potato chips also tend to buy steak). Algorithms: Apriori, Eclat.
+  - Pembelajaran aturan asosiasi: Menemukan hubungan menarik antara atribut (misalnya, orang yang membeli saus barbekyu dan keripik kentang juga cenderung membeli steak). Algoritma: Apriori, Eclat.
 
-- **Semisupervised Learning**: Deals with partially labeled training data, usually a lot of unlabeled data and a little labeled data (Figure 1-11: Semisupervised learning). Algorithms first cluster similar instances (unsupervised), then use labels to propagate to the cluster (e.g., Google Photos recognizing the same person in photos with only a few labeled). Examples: Deep belief networks (DBNs) based on stacked restricted Boltzmann machines (RBMs), trained unsupervised then fine-tuned supervised.
+- **Semisupervised Learning**: Menggunakan data pelatihan yang sebagian diberi label, biasanya terdiri dari banyak data yang tidak diberi label dan sedikit data yang diberi label (Gambar 1-11: Pembelajaran Semi-Supervised). Algoritma pertama-tama mengelompokkan instance yang serupa (tanpa pengawasan), lalu menggunakan label untuk menyebarkan ke dalam kelompok (misalnya, Google Photos mengenali orang yang sama dalam foto dengan hanya beberapa label). Contoh: Jaringan keyakinan dalam (DBN) berdasarkan mesin Boltzmann terbatas bertumpuk (RBM), dilatih tanpa pengawasan lalu disesuaikan dengan pengawasan.
 
 <img width="979" height="477" alt="image" src="https://github.com/user-attachments/assets/6bd8cd47-7610-4ead-acce-53e4cd43856b" />
 
 
-- **Reinforcement Learning**: Very different—the learning system (agent) observes the environment, selects and performs actions, and gets rewards or penalties (Figure 1-12: Reinforcement Learning). It learns by itself what is the best strategy (policy) to get the most reward over time (e.g., robots learning to walk; AlphaGo learning by analyzing millions of games and playing thousands against itself; during games against champion, learning was off).
+- **Pembelajaran Penguatan**: Sangat berbeda—sistem pembelajaran (agen) mengamati lingkungan, memilih dan melakukan tindakan, serta menerima hadiah atau hukuman (Gambar 1-12: Pembelajaran Penguatan). Ia belajar sendiri strategi terbaik (kebijakan) untuk mendapatkan hadiah maksimal seiring waktu (misalnya, robot belajar berjalan; AlphaGo belajar dengan menganalisis jutaan permainan dan bermain ribuan kali melawan dirinya sendiri; selama permainan melawan juara, proses belajar dimatikan).
+<img width="986" height="511" alt="image" src="https://github.com/user-attachments/assets/5b6445a3-aa22-431f-bed2-3fa3449510ad" />
 
   <img width="998" height="692" alt="image" src="https://github.com/user-attachments/assets/d9e4a5ca-657d-40d3-bb56-67fa11c91c25" />
 
@@ -214,4 +213,5 @@ No model better if nothing assumed about data (David Wolpert, 1996). In practice
 This chapter sets the foundation; later chapters add hands-on code with Scikit-Learn, Keras, and TensorFlow.
 
 ```
+
 
