@@ -13,12 +13,15 @@ If familiar with basics, skip to Chapter 2; otherwise, answer end-of-chapter que
 
 ## Why Use Machine Learning?
 Traditional programming for spam filters involves studying patterns (e.g., words like "4U," "credit card," "free," "amazing" in subject lines, sender's name, email body) and writing detection algorithms for each, testing and iterating until good enough (Figure 1-1: The traditional approach). This results in long lists of complex rules that are hard to maintain.
-
+<img width="978" height="489" alt="image" src="https://github.com/user-attachments/assets/c7286d8e-fac2-4486-a0b0-c82d9fc2e44f" />
 In contrast, an ML-based spam filter automatically learns good predictors by detecting unusually frequent word patterns in spam examples compared to ham (Figure 1-2: The Machine Learning approach). The program is shorter, easier to maintain, and likely more accurate. It adapts to changes, such as spammers switching to "For U," by noticing the new pattern in user-flagged spam and flagging it automatically without intervention (Figure 1-3: Machine Learning can help humans learn).
+<img width="984" height="500" alt="image" src="https://github.com/user-attachments/assets/86ddfcd2-d79d-496f-94b0-b31d71d6964a" />
+<img width="985" height="383" alt="image" src="https://github.com/user-attachments/assets/46094add-718a-4927-b52b-ae9c55e86259" />
 
 ML shines for complex problems with no known algorithms, like speech recognition (hardcoding rules for distinguishing "one" and "two" fails to scale across accents, noise, languages, and millions of speakers—ML learns from example recordings instead).
 
 ML also helps humans learn via data mining: Inspecting trained models reveals unsuspected correlations or new trends (Figure 1-4: Machine Learning can help humans learn).
+<img width="986" height="511" alt="image" src="https://github.com/user-attachments/assets/5b6445a3-aa22-431f-bed2-3fa3449510ad" />
 
 To summarize, ML is great for:
 - Problems requiring a lot of fine-tuning or long lists of rules (one ML algorithm often simplifies the code and performs better).
@@ -54,19 +57,32 @@ For example, a spam filter can be a supervised learning system that is model-bas
 
 ### Supervised/Unsupervised Learning
 - **Supervised Learning**: The training data fed to the algorithm includes the desired solutions, called labels (Figure 1-5: A labeled training set for spam classification). Common tasks:
+<img width="978" height="420" alt="image" src="https://github.com/user-attachments/assets/2485d309-006c-49c4-a074-aa0d668d54be" />
   - Classification: Categorize instances (e.g., spam filter classifying emails as spam or ham).
   - Regression: Predict numeric values (e.g., predict a car's price given predictors like mileage, age, brand; Figure 1-6: A regression problem: predict a value, given an input feature). Note: An attribute is a data type (e.g., "mileage"), while a feature has several meanings but typically means an attribute plus its value. Algorithms: k-Nearest Neighbors, Linear Regression, Logistic Regression (outputs class probabilities, e.g., 20% chance of spam), Support Vector Machines (SVMs), Decision Trees and Random Forests, Neural networks.
+<img width="998" height="552" alt="image" src="https://github.com/user-attachments/assets/9eef420a-3666-43e2-b749-87f484eec813" />
+
   - Some neural network algorithms (e.g., autoencoders and restricted Boltzmann machines) can be unsupervised, while others (e.g., deep belief networks) are semisupervised.
 
 - **Unsupervised Learning**: The training data is unlabeled (Figure 1-7: Unsupervised learning). The system learns without a teacher. Key tasks (covered in Chapters 8–9):
+<img width="993" height="371" alt="image" src="https://github.com/user-attachments/assets/86ff9e2f-1be9-4d44-8e30-bded3acbe74b" />
   - Clustering: Group similar instances automatically (e.g., cluster blog visitors by demographics or behavior; Figure 1-8: Clustering). Algorithms: K-Means, DBSCAN, Hierarchical Cluster Analysis (HCA).
+<img width="981" height="362" alt="image" src="https://github.com/user-attachments/assets/a6c495e6-e6f4-4058-b538-847a4c440caa" />
+
   - Anomaly detection and novelty detection: Detect unusual instances (e.g., fraud detection, manufacturing defects; Figure 1-10: Anomaly detection). Algorithms: One-class SVM, Isolation Forest.
+<img width="1008" height="417" alt="image" src="https://github.com/user-attachments/assets/6c9fb6e3-6f3c-4ab1-885d-5d8096113db2" /> 
   - Visualization and dimensionality reduction: Simplify data without losing too much information for visualization or feature extraction (Figure 1-9: Visualization of a high-dimensional dataset using a dimensionality reduction algorithm; e.g., t-SNE highlighting semantic clusters like numbers or animals). Algorithms: Principal Component Analysis (PCA), Kernel PCA, Locally Linear Embedding (LLE), t-Distributed Stochastic Neighbor Embedding (t-SNE). Feature extraction merges correlated features (e.g., car's mileage and age into "wear and tear").
+    <img width="984" height="668" alt="image" src="https://github.com/user-attachments/assets/9686c26e-7327-40fe-80a4-f125de0b6f08" />
   - Association rule learning: Discover interesting relations between attributes (e.g., people buying barbecue sauce and potato chips also tend to buy steak). Algorithms: Apriori, Eclat.
 
 - **Semisupervised Learning**: Deals with partially labeled training data, usually a lot of unlabeled data and a little labeled data (Figure 1-11: Semisupervised learning). Algorithms first cluster similar instances (unsupervised), then use labels to propagate to the cluster (e.g., Google Photos recognizing the same person in photos with only a few labeled). Examples: Deep belief networks (DBNs) based on stacked restricted Boltzmann machines (RBMs), trained unsupervised then fine-tuned supervised.
 
+<img width="979" height="477" alt="image" src="https://github.com/user-attachments/assets/6bd8cd47-7610-4ead-acce-53e4cd43856b" />
+
+
 - **Reinforcement Learning**: Very different—the learning system (agent) observes the environment, selects and performs actions, and gets rewards or penalties (Figure 1-12: Reinforcement Learning). It learns by itself what is the best strategy (policy) to get the most reward over time (e.g., robots learning to walk; AlphaGo learning by analyzing millions of games and playing thousands against itself; during games against champion, learning was off).
+
+  <img width="998" height="692" alt="image" src="https://github.com/user-attachments/assets/d9e4a5ca-657d-40d3-bb56-67fa11c91c25" />
 
 ### Batch and Online Learning
 - **Batch Learning (Offline Learning)**: Trained using all available data offline (takes time and resources). Then launched without further learning (applies what it learned). To handle new data or changes, train a new version from scratch on full dataset (including old and new data), then replace the old (can automate; Figure 1-3). Good if data doesn't change rapidly and resources allow.
@@ -75,11 +91,13 @@ For example, a spam filter can be a supervised learning system that is model-bas
 
 <img width="1018" height="511" alt="image" src="https://github.com/user-attachments/assets/a4d41b73-d3ca-48ab-aa76-bad734ec9def" />
 
-<img width="991" height="420" alt="image" src="https://github.com/user-attachments/assets/98b1da5e-2269-471d-9f57-c2d8f2b7b6bd" />
+<img width="980" height="519" alt="image" src="https://github.com/user-attachments/assets/282f9a6a-fe99-4968-8ab9-fd5aaa879412" />
 
 
 ### Instance-Based Versus Model-Based Learning
 - **Instance-Based Learning**: The system learns the examples by heart, then generalizes to new cases using a similarity measure (e.g., flag an email as spam if very similar to known spam emails by word count; simplest form is k-Nearest Neighbors, classifying based on majority vote of most similar instances; Figure 1-15: Instance-based learning).
+
+<img width="991" height="420" alt="image" src="https://github.com/user-attachments/assets/98b1da5e-2269-471d-9f57-c2d8f2b7b6bd" />
 
 - **Model-Based Learning**: Builds a model of the examples, then uses that model to make predictions (Figure 1-16: Model-based learning). Example: Study if money makes people happy using life satisfaction and GDP per capita data—model life satisfaction as a linear function (Equation 1-1: life_satisfaction = θ₀ + θ₁ × GDP_per_capita). Training finds parameters θ₀ (bias) and θ₁ (weight) to fit the data best (minimizing cost function like mean squared error; Figures 1-17 to 1-19 show linear models fitting data). Utility function measures goodness, cost function badness.
 
@@ -196,3 +214,4 @@ No model better if nothing assumed about data (David Wolpert, 1996). In practice
 This chapter sets the foundation; later chapters add hands-on code with Scikit-Learn, Keras, and TensorFlow.
 
 ```
+
