@@ -78,7 +78,7 @@ Misalnya, filter spam dapat menjadi sistem pembelajaran terawasi yang berbasis m
 <img width="979" height="477" alt="image" src="https://github.com/user-attachments/assets/6bd8cd47-7610-4ead-acce-53e4cd43856b" />
 
 
-- **Pembelajaran Penguatan**: Sangat berbeda—sistem pembelajaran (agen) mengamati lingkungan, memilih dan melakukan tindakan, serta menerima hadiah atau hukuman (Gambar 1-12: Pembelajaran Penguatan). Ia belajar sendiri strategi terbaik (kebijakan) untuk mendapatkan hadiah maksimal seiring waktu (misalnya, robot belajar berjalan; AlphaGo belajar dengan menganalisis jutaan permainan dan bermain ribuan kali melawan dirinya sendiri; selama permainan melawan juara, proses belajar dimatikan).
+- **Reinforced Learning**: Sangat berbeda—sistem pembelajaran (agen) mengamati lingkungan, memilih dan melakukan tindakan, serta menerima hadiah atau hukuman (Gambar 1-12: Pembelajaran Penguatan). Ia belajar sendiri strategi terbaik (kebijakan) untuk mendapatkan hadiah maksimal seiring waktu (misalnya, robot belajar berjalan; AlphaGo belajar dengan menganalisis jutaan permainan dan bermain ribuan kali melawan dirinya sendiri; selama permainan melawan juara, proses belajar dimatikan).
 <img width="986" height="511" alt="image" src="https://github.com/user-attachments/assets/5b6445a3-aa22-431f-bed2-3fa3449510ad" />
 
   <img width="998" height="692" alt="image" src="https://github.com/user-attachments/assets/d9e4a5ca-657d-40d3-bb56-67fa11c91c25" />
@@ -93,12 +93,12 @@ Misalnya, filter spam dapat menjadi sistem pembelajaran terawasi yang berbasis m
 <img width="980" height="519" alt="image" src="https://github.com/user-attachments/assets/282f9a6a-fe99-4968-8ab9-fd5aaa879412" />
 
 
-### Instance-Based Versus Model-Based Learning
-- **Instance-Based Learning**: The system learns the examples by heart, then generalizes to new cases using a similarity measure (e.g., flag an email as spam if very similar to known spam emails by word count; simplest form is k-Nearest Neighbors, classifying based on majority vote of most similar instances; Figure 1-15: Instance-based learning).
+### Instance-Based versus Model-Based Learning
+- **Instance-Based Learning**: Sistem mempelajari contoh-contoh secara langsung, kemudian menggeneralisasi ke kasus baru menggunakan ukuran kemiripan (misalnya, menandai email sebagai spam jika sangat mirip dengan email spam yang sudah diketahui berdasarkan jumlah kata; bentuk paling sederhana adalah k-Nearest Neighbors, mengklasifikasikan berdasarkan suara mayoritas dari contoh-contoh yang paling mirip; Gambar 1-15: Pembelajaran Berbasis Contoh).
 
 <img width="991" height="420" alt="image" src="https://github.com/user-attachments/assets/98b1da5e-2269-471d-9f57-c2d8f2b7b6bd" />
 
-- **Model-Based Learning**: Builds a model of the examples, then uses that model to make predictions (Figure 1-16: Model-based learning). Example: Study if money makes people happy using life satisfaction and GDP per capita data—model life satisfaction as a linear function (Equation 1-1: life_satisfaction = θ₀ + θ₁ × GDP_per_capita). Training finds parameters θ₀ (bias) and θ₁ (weight) to fit the data best (minimizing cost function like mean squared error; Figures 1-17 to 1-19 show linear models fitting data). Utility function measures goodness, cost function badness.
+- **Model-Based Learning**: Membangun model dari contoh-contoh, lalu menggunakan model tersebut untuk membuat prediksi (Gambar 1-16: Pembelajaran berbasis model). Contoh: Meneliti apakah uang membuat orang bahagia menggunakan data kepuasan hidup dan PDB per kapita—memodelkan kepuasan hidup sebagai fungsi linier (Persamaan 1-1: life_satisfaction = θ₀ + θ₁ × GDP_per_capita). Pelatihan menemukan parameter θ₀ (bias) dan θ₁ (weight) untuk menyesuaikan data dengan sebaik-baiknya (meminimalkan fungsi biaya seperti mean squared error; Gambar 1-17 hingga 1-19 menunjukkan model linier yang menyesuaikan data). Fungsi utilitas mengukur kebaikan, fungsi biaya mengukur keburukan.
 
 <img width="1006" height="432" alt="image" src="https://github.com/user-attachments/assets/22ea5cdf-2573-4b76-b624-4a3576eb5d26" />
 
@@ -109,7 +109,7 @@ Misalnya, filter spam dapat menjadi sistem pembelajaran terawasi yang berbasis m
 <img width="990" height="436" alt="image" src="https://github.com/user-attachments/assets/bbc7865f-25e6-4c9a-b83a-a9e9e5e04a4f" />
 
 
-  To illustrate, the book provides a Python example using Scikit-Learn to train a linear regression model on life satisfaction vs. GDP data (Example 1-1). The code loads data, prepares it, visualizes a scatterplot, trains the model, and predicts for Cyprus:
+  Sebagai ilustrasi, buku ini memberikan contoh kode Python menggunakan Scikit-Learn untuk melatih model regresi linier pada data kepuasan hidup versus PDB (Contoh 1-1). Kode tersebut memuat data, mempersiapkannya, menampilkan diagram pencar, melatih model, dan memprediksi untuk Siprus:
 
   ```python:disable-run
   import matplotlib.pyplot as plt
@@ -140,53 +140,53 @@ Misalnya, filter spam dapat menjadi sistem pembelajaran terawasi yang berbasis m
   print(model.predict(X_new))  # outputs [[6.30165767]]
   ```
 
-  This code demonstrates loading data, visualization, model selection, training, and prediction. For comparison, a k-Nearest Neighbors regression (averaging neighbors' values) could be used instead.
+  Kode ini menunjukkan proses pemuatan data, visualisasi, pemilihan model, pelatihan, dan prediksi. Sebagai perbandingan, regresi k-Nearest Neighbors (mengambil rata-rata nilai tetangga) dapat digunakan sebagai alternatif.
 
-## Typical Machine Learning Project Workflow
-Study the data, explore and visualize it (e.g., scatterplot), prepare the data for ML algorithms, select and train models, fine-tune via error analysis and hyperparameter search, evaluate on test set, launch, monitor, and maintain. Chapter 2 covers an end-to-end project.
+## Alur Kerja Proyek Machine Learning Umum  
+Studi data, eksplorasi dan visualisasi data (misalnya, diagram pencar), persiapan data untuk algoritma ML, pemilihan dan pelatihan model, penyempurnaan melalui analisis kesalahan dan pencarian hiperparameter, evaluasi pada set uji, peluncuran, pemantauan, dan pemeliharaan. Bab 2 membahas proyek end-to-end.
 
-## Main Challenges of Machine Learning
-Problems usually from bad data (quantity, quality) more than bad algorithms.
+## Tantangan Utama dalam Machine Learning
+Masalah biasanya berasal dari data yang buruk (kuantitas, kualitas) daripada algoritma yang buruk.
 
-### Insufficient Quantity of Training Data
+### Kuantitas Data Training yang Tidak Cukup
 
 <img width="991" height="614" alt="image" src="https://github.com/user-attachments/assets/d6953c72-da4c-41a5-96c3-261aed72c2df" />
 
-ML needs lots of data (thousands for simple problems, millions for complex like image or speech). 2001 paper "The Unreasonable Effectiveness of Data" notes algorithms perform similarly given enough data (Figure 1-20: Even mediocre algorithms can perform well with lots of data). For complex problems, data matters more than algorithms.
+ML membutuhkan banyak data (ribuan untuk masalah sederhana, jutaan untuk masalah kompleks seperti gambar atau suara). Artikel tahun 2001 “The Unreasonable Effectiveness of Data” mencatat bahwa algoritma berperforma serupa jika diberikan data yang cukup (Gambar 1-20: Bahkan algoritma yang biasa-biasa saja dapat berperforma baik dengan data yang banyak). Untuk masalah kompleks, data lebih penting daripada algoritma.
 
-### Nonrepresentative Training Data
+### Data Training yang Tidak Representatif
 <img width="998" height="416" alt="image" src="https://github.com/user-attachments/assets/9af81e3b-863b-4d74-991f-ef35ad6addb4" />
 
-To generalize well, training data must represent new cases. Sampling noise (chance in small samples) or sampling bias (flawed method, e.g., 1936 Literary Digest poll predicting Landon win due to telephone/wealthy bias; nonresponse bias). Example: Linear model on life satisfaction vs. GDP misses poor countries—adding them changes the model (Figure 1-21: Training data that is not representative).
+Untuk generalisasi yang baik, data training harus mewakili kasus baru. Noise sampling (kesalahan dalam sampel kecil) atau bias sampling (metode yang cacat, misalnya jajak pendapat Literary Digest 1936 yang memprediksi kemenangan Landon karena bias telepon/kekayaan; bias nonrespons). Contoh: Model linier tentang kepuasan hidup versus PDB mengabaikan negara miskin—menambahkan mereka mengubah model (Gambar 1-21: Data pelatihan yang tidak representatif).
 
-### Poor-Quality Data
-If full of errors, outliers, noise (poor measurements), hard to detect patterns. Spend time cleaning: Discard/fix outliers, decide on missing values (ignore attribute, ignore instances, fill with median/zero, or train one model with and one without the attribute).
+### Data Berkualitas Buruk
+Jika penuh dengan kesalahan, outlier, atau noise (pengukuran buruk), sulit mendeteksi pola. Luangkan waktu untuk membersihkan: Buang/perbaiki outlier, tentukan nilai yang hilang (abaikan atribut, abaikan contoh, isi dengan median/nol, atau latih satu model dengan dan satu tanpa atribut tersebut).
 
-### Irrelevant Features
-Garbage in, garbage out. Feature engineering: Feature selection (select useful), feature extraction (combine to new, e.g., via dimensionality reduction), create new features by gathering new data.
+### Fitur yang Tidak Relevan
+Sampah masuk, sampah keluar. Rekayasa fitur: Pemilihan fitur (pilih yang berguna), ekstraksi fitur (gabungkan menjadi fitur baru, misalnya melalui pengurangan dimensi), buat fitur baru dengan mengumpulkan data baru.
 
-### Overfitting the Training Data
+### Overfitting pada Data Latihan
 <img width="1026" height="441" alt="image" src="https://github.com/user-attachments/assets/5b2d159d-494a-4871-9350-de1c6329fbf4" />
 
-Model too complex, learns noise (poor generalization; Figure 1-22: Overfitting). Like high-degree polynomial fitting training data perfectly but useless for new. Solutions: Simplify (reduce parameters/features/degrees, regularization constraining complexity; Figure 1-23: Regularized models), gather more training data, reduce noise (fix errors, remove outliers).
+Model terlalu kompleks, belajar dari noise (generalisasi buruk; Gambar 1-22: Overfitting). Seperti pemodelan polinomial berderajat tinggi yang cocok sempurna dengan data pelatihan tetapi tidak berguna untuk data baru. Solusi: Sederhanakan (kurangi parameter/fitur/derajat, regularisasi untuk membatasi kompleksitas; Gambar 1-23: Model yang diregulasi), kumpulkan lebih banyak data pelatihan, kurangi noise (perbaiki kesalahan, hapus outlier).
 
 <img width="1008" height="406" alt="image" src="https://github.com/user-attachments/assets/9df14404-6021-45d5-b430-9efede86ca3f" />
 
 
-### Underfitting the Training Data
-Opposite of overfitting—model too simple to learn structure. Solutions: Select powerful model (more parameters), feed better features, reduce constraints (e.g., reduce regularization hyperparameter).
+### Underfitting Data Pelatihan
+Kebalikan dari overfitting—model terlalu sederhana untuk mempelajari struktur. Solusi: Pilih model yang lebih kuat (lebih banyak parameter), berikan fitur yang lebih baik, kurangi batasan (misalnya, kurangi parameter regularisasi).
 
-## Testing and Validating
-Estimate generalization error: Split data into training set (80% for small, less for big data) and test set (hold out). Train on training, evaluate on test (generalization error = error rate on new cases). If training error low but generalization high, overfitting.
+## Pengujian dan Validasi
+Estimasi kesalahan generalisasi: Bagi data menjadi set pelatihan (80% untuk data kecil, lebih sedikit untuk data besar) dan set pengujian (dibuat terpisah). Latih pada set pelatihan, evaluasi pada set pengujian (kesalahan generalisasi = tingkat kesalahan pada kasus baru). Jika kesalahan pelatihan rendah tetapi generalisasi tinggi, overfitting.
 
-### Hyperparameter Tuning and Model Selection
-Holdout validation: Split training into smaller training set and validation set. Train multiple models with different hyperparameters on reduced training, select best on validation, train best model on full training, evaluate on test. If validation too small/imprecise, use cross-validation (train/evaluate multiple times on small validation sets, average; multiplies training time).
+### Penyesuaian Hiperparameter dan Pemilihan Model  
+Validasi holdout: Bagi data pelatihan menjadi set pelatihan yang lebih kecil dan set validasi. Latih beberapa model dengan hiperparameter yang berbeda pada set pelatihan yang lebih kecil, pilih yang terbaik pada set validasi, latih model terbaik pada set pelatihan penuh, dan evaluasi pada set uji. Jika set validasi terlalu kecil/tidak akurat, gunakan validasi silang (latih/evaluasi beberapa kali pada set validasi kecil, rata-rata; memperpanjang waktu pelatihan).
 
 ### Data Mismatch
-E.g., scraped web images for mobile app—preprocess to match phone pics. Train on web data, but if poor performance on validation (phone pics), use train-dev set (hold out part of web training). If good on train-dev but poor on validation = data mismatch (preprocess more); if poor on train-dev = overfitting.
+Contoh: Gambar web yang dikumpulkan untuk aplikasi seluler—prsesing ulang agar sesuai dengan foto ponsel. Latih pada data web, tetapi jika kinerja buruk pada validasi (foto ponsel), gunakan set pelatihan-validasi (bagian yang disisihkan dari pelatihan web). Jika baik pada pelatihan-validasi tetapi buruk pada validasi = data mismatch (prsesing ulang lebih lanjut); jika buruk pada pelatihan-validasi = overfitting.
 
-### No Free Lunch Theorem
-No model better if nothing assumed about data (David Wolpert, 1996). In practice, make assumptions (e.g., linear for simple relations) and evaluate few reasonable models—no free lunch!
+### Teorema No Free Lunch
+Tidak ada model yang lebih baik jika tidak ada asumsi tentang data (David Wolpert, 1996). Dalam praktiknya, buat asumsi (misalnya, linier untuk hubungan sederhana) dan evaluasi beberapa model yang wajar—tidak ada makan siang gratis!
 
 ## Exercises
 19 questions to test understanding (solutions in Appendix A):
@@ -213,5 +213,6 @@ No model better if nothing assumed about data (David Wolpert, 1996). In practice
 This chapter sets the foundation; later chapters add hands-on code with Scikit-Learn, Keras, and TensorFlow.
 
 ```
+
 
 
