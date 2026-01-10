@@ -1,3 +1,5 @@
 /Chapter 2/datasets
 /Chapter 2/my_model.pkl
 /Chapter 2/ML
+*.pkl
+*.csv
